@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { BlogCard } from "@/components/blog-card";
 import { HomeHero } from "@/components/home-hero";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectShowcase } from "@/components/project-showcase";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -34,19 +34,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-page section-pad">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <SectionHeading title="Featured projects" description="Selected AI, data, and web engineering work." />
-          <Button asChild variant="outline" className="hidden sm:inline-flex">
-            <Link href="/projects">View all</Link>
-          </Button>
-        </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-      </section>
+      <ProjectShowcase projects={featuredProjects} />
+
 
       <section className="border-y border-border bg-secondary/45">
         <div className="container-page section-pad">
@@ -84,3 +73,5 @@ export default function HomePage() {
     </>
   );
 }
+
+
