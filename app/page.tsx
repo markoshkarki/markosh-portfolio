@@ -1,12 +1,11 @@
-import { ArrowRight, Code2, BriefcaseBusiness } from "lucide-react";
 import Link from "next/link";
 
 import { BlogCard } from "@/components/blog-card";
-import { MotionReveal } from "@/components/motion-reveal";
+import { HomeHero } from "@/components/home-hero";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { getBlogPosts, getProjects } from "@/lib/content";
 
 const skills = ["Python", "Machine Learning", "Data Analysis", "Next.js", "TypeScript", "SQL", "MLOps"];
@@ -18,46 +17,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="container-page section-pad">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          <MotionReveal>
-            <p className="mb-4 text-sm font-medium text-primary">markoshkarki.com.np</p>
-            <h1 className="max-w-3xl text-4xl font-semibold tracking-normal sm:text-5xl lg:text-6xl">
-              Markosh Karki
-            </h1>
-            <p className="mt-5 text-xl font-medium text-muted-foreground">
-              Aspiring AI Engineer & Data Scientist
-            </p>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-              Building intelligent systems, ML-powered applications, and modern software experiences.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild>
-                <Link href="/resume">
-                  Resume <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="https://github.com/markoshkarki">
-                  <Code2 className="h-4 w-4" /> GitHub
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="https://linkedin.com/in/markoshkarki">
-                  <BriefcaseBusiness className="h-4 w-4" /> LinkedIn
-                </Link>
-              </Button>
-            </div>
-          </MotionReveal>
-          <MotionReveal delay={0.08}>
-            <div className="mx-auto flex aspect-square max-w-sm items-center justify-center rounded-lg border border-border bg-gradient-to-br from-secondary via-card to-primary/10 p-6 shadow-soft">
-              <div className="flex h-44 w-44 items-center justify-center rounded-full border border-border bg-background text-5xl font-semibold text-primary">
-                MK
-              </div>
-            </div>
-          </MotionReveal>
-        </div>
-      </section>
+      <HomeHero />
 
       <section className="border-y border-border bg-secondary/45">
         <div className="container-page section-pad grid gap-8 md:grid-cols-[0.7fr_1fr]">
