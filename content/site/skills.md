@@ -1,0 +1,11 @@
+---
+skills:
+  - Python
+  - Machine Learning
+  - Data Science
+  - SQL
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+  - Git
+---

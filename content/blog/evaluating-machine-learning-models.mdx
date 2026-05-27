@@ -1,0 +1,28 @@
+---
+title: Evaluating Machine Learning Models Beyond Accuracy
+description: Notes on why precision, recall, baselines, latency, and explainability matter in applied ML projects.
+date: 2026-01-30
+tags: [Machine Learning, Evaluation, Data Science]
+---
+
+## Accuracy is only a starting point
+
+Accuracy can hide important failure modes, especially when classes are imbalanced or the cost of mistakes is uneven.
+
+## Metrics depend on the product
+
+A spam filter, medical triage tool, recommendation system, and resume matcher all need different evaluation priorities.
+
+```python
+from sklearn.metrics import precision_score, recall_score, f1_score
+
+scores = {
+    "precision": precision_score(y_true, y_pred),
+    "recall": recall_score(y_true, y_pred),
+    "f1": f1_score(y_true, y_pred),
+}
+```
+
+## Better reporting
+
+A good project report includes a baseline, test split details, confusion matrix, and a short explanation of model limitations.

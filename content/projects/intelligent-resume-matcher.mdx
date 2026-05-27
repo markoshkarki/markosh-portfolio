@@ -1,0 +1,25 @@
+---
+title: Intelligent Resume Matcher
+description: An NLP-assisted tool that compares resumes with job descriptions and highlights skill gaps for early-career candidates.
+date: 2026-02-15
+category: AI
+tags: [AI, ML, Data Science]
+techStack: [Python, scikit-learn, FastAPI, Next.js, Tailwind CSS]
+github: https://github.com/markoshkarki/intelligent-resume-matcher
+demo: https://resume-matcher-demo.vercel.app
+screenshots: [resume-score-dashboard, skill-gap-view]
+status: Completed
+featured: true
+---
+
+## Overview
+
+This project explores how natural language processing can support job seekers without replacing their own judgment. The application scores alignment between a resume and a job description, then shows missing keywords, overlapping strengths, and concise improvement suggestions.
+
+## Approach
+
+The first version uses TF-IDF features, cosine similarity, and a curated skill dictionary. A future version can add embeddings and role-specific weighting.
+
+## What I learned
+
+The most important design decision was making the explanation more useful than the score. Recruiters and candidates need clear signals, not mysterious percentages.

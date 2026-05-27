@@ -1,0 +1,112 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://markoshkarki.com.np
+display_url: https://markoshkarki.com.np
+logo_url: /favicon.ico
+
+collections:
+  - name: site
+    label: Site Settings
+    files:
+      - label: Homepage
+        name: home
+        file: content/site/home.md
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Domain, name: domain, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: text }
+          - { label: Resume URL, name: resumeUrl, widget: string }
+          - { label: GitHub, name: github, widget: string }
+          - { label: LinkedIn, name: linkedin, widget: string }
+      - label: About Page
+        name: about
+        file: content/site/about.md
+        fields:
+          - { label: Intro, name: intro, widget: text }
+          - { label: Focus, name: focus, widget: text }
+      - label: Skills
+        name: skills
+        file: content/site/skills.md
+        fields:
+          - label: Skills
+            name: skills
+            widget: list
+            field: { label: Skill, name: skill, widget: string }
+      - label: Resume
+        name: resume
+        file: content/site/resume.md
+        fields:
+          - { label: Resume URL, name: resumeUrl, widget: string }
+      - label: Social Links
+        name: socials
+        file: content/site/socials.md
+        fields:
+          - { label: Email, name: email, widget: string }
+          - { label: GitHub, name: github, widget: string }
+          - { label: LinkedIn, name: linkedin, widget: string }
+
+  - name: projects
+    label: Projects
+    folder: content/projects
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - label: Category
+        name: category
+        widget: select
+        options: [AI, ML, Data Science, Web, Research]
+      - label: Tags
+        name: tags
+        widget: list
+        field:
+          label: Tag
+          name: tag
+          widget: select
+          options: [AI, ML, Data Science, Web, Research]
+      - label: Tech Stack
+        name: techStack
+        widget: list
+        field: { label: Technology, name: technology, widget: string }
+      - { label: GitHub Link, name: github, widget: string, required: false }
+      - { label: Live Demo, name: demo, widget: string, required: false }
+      - label: Screenshots
+        name: screenshots
+        widget: list
+        required: false
+        field: { label: Screenshot Label, name: screenshot, widget: string }
+      - label: Status
+        name: status
+        widget: select
+        options: [Completed, In Progress, Research]
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: blog
+    label: Blog Posts
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - label: Tags
+        name: tags
+        widget: list
+        field: { label: Tag, name: tag, widget: string }
+      - { label: Body, name: body, widget: markdown }
