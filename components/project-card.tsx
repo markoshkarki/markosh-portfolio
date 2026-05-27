@@ -33,7 +33,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
               <Badge className="border-primary/20 bg-primary/10 text-primary">{project.status}</Badge>
               <Badge className="bg-background/80 text-muted-foreground">{project.category}</Badge>
             </div>
-            <h3 className={cn("mt-5 font-semibold tracking-normal text-foreground", isFeatured ? "text-2xl sm:text-3xl" : "text-lg")}> 
+            <h3 className={cn("mt-5 font-semibold leading-snug tracking-normal text-foreground", isFeatured ? "text-2xl sm:text-[1.9rem]" : "text-lg")}> 
               {project.title}
             </h3>
           </div>
@@ -42,7 +42,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           </span>
         </div>
 
-        <p className={cn("mt-4 text-sm leading-7 text-muted-foreground", isFeatured ? "max-w-2xl sm:text-base" : "line-clamp-3")}> 
+        <p className={cn("mt-4 text-sm leading-7 text-muted-foreground", isFeatured ? "max-w-2xl sm:text-[0.96rem] sm:leading-8" : "line-clamp-3")}> 
           {project.description}
         </p>
 
@@ -90,3 +90,4 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
     </article>
   );
 }
+

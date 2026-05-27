@@ -13,7 +13,7 @@
     --secondary: 225 28% 94%;
     --secondary-foreground: 222 38% 16%;
     --muted: 220 24% 94%;
-    --muted-foreground: 220 12% 42%;
+    --muted-foreground: 220 13% 36%;
     --accent: 258 38% 48%;
     --accent-foreground: 0 0% 100%;
     --border: 220 18% 88%;
@@ -31,7 +31,7 @@
     --secondary: 220 13% 17%;
     --secondary-foreground: 210 24% 92%;
     --muted: 220 13% 16%;
-    --muted-foreground: 218 12% 68%;
+    --muted-foreground: 218 14% 73%;
     --accent: 258 44% 68%;
     --accent-foreground: 222 38% 10%;
     --border: 220 12% 22%;
@@ -49,6 +49,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
     background-image:
       radial-gradient(circle at 8% 0%, hsl(var(--primary) / 0.06), transparent 28rem),
       radial-gradient(circle at 92% 4%, hsl(var(--accent) / 0.06), transparent 24rem);
@@ -83,7 +84,9 @@
   }
 
   .prose-portfolio {
-    @apply prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-headings:font-semibold prose-a:text-primary prose-pre:border prose-pre:border-border prose-pre:bg-secondary;
+    @apply prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-normal prose-p:leading-8 prose-li:leading-8 prose-a:text-primary prose-pre:border prose-pre:border-border prose-pre:bg-secondary;
   }
 }
+
+
 

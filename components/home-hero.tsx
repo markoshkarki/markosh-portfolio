@@ -27,21 +27,21 @@ export function HomeHero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,hsl(var(--primary)/0.14),transparent_30%),radial-gradient(circle_at_78%_22%,hsl(var(--accent)/0.13),transparent_28%),linear-gradient(180deg,hsl(var(--background)),hsl(var(--secondary)/0.32))]" />
       <div className="absolute left-1/2 top-16 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl dark:bg-cyan-300/5" />
 
-      <div className="container-page grid min-h-[calc(100vh-4rem)] items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.04fr_0.96fr] lg:py-24">
+      <div className="container-page grid min-h-[calc(100vh-4rem)] items-center gap-10 py-14 sm:py-16 lg:grid-cols-[1.04fr_0.96fr] lg:py-20">
         <MotionReveal>
-          <div className="max-w-3xl">
+          <div className="max-w-[46rem]">
             <div className="mb-6 flex flex-wrap items-center gap-3">
               <Badge className="border-primary/20 bg-primary/8 text-primary">markoshkarki.com.np</Badge>
               <span className="text-sm text-muted-foreground">Computer Engineer moving into AI and Data Science</span>
             </div>
 
-            <h1 className="text-5xl font-semibold tracking-normal text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-semibold leading-[1.04] tracking-normal text-foreground sm:text-5xl lg:text-6xl">
               Markosh Karki
             </h1>
-            <p className="mt-5 text-xl font-medium text-primary sm:text-2xl">
+            <p className="mt-5 text-lg font-medium leading-8 text-primary sm:text-xl">
               Aspiring AI Engineer & Data Scientist
             </p>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+            <p className="mt-5 max-w-2xl text-[0.98rem] leading-8 text-muted-foreground sm:text-base">
               Building intelligent systems, ML-powered applications, and modern software experiences with a practical engineering mindset.
             </p>
 
@@ -68,7 +68,7 @@ export function HomeHero() {
               </Link>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-2">
+            <div className="mt-8 flex flex-wrap gap-2">
               {focusAreas.map((area) => (
                 <Badge key={area} className="bg-background/80 px-3 py-1.5 text-sm shadow-sm">
                   {area}
@@ -125,3 +125,4 @@ export function HomeHero() {
     </section>
   );
 }
+

@@ -32,9 +32,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="container-page section-pad">
       <div className="max-w-3xl">
-        <p className="text-sm font-medium text-primary">{project.category}</p>
-        <h1 className="mt-4 text-3xl font-semibold tracking-normal sm:text-5xl">{project.title}</h1>
-        <p className="mt-5 text-lg leading-8 text-muted-foreground">{project.description}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{project.category}</p>
+        <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-normal sm:text-4xl lg:text-5xl">{project.title}</h1>
+        <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">{project.description}</p>
         <div className="mt-6 flex flex-wrap gap-2">
           <Badge>{project.status}</Badge>
           {project.tags.map((tag) => (
@@ -75,3 +75,4 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     </div>
   );
 }
+

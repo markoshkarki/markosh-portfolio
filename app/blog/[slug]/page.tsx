@@ -28,14 +28,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="container-page section-pad">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
             <time dateTime={post.date}>{post.date}</time>
             <span>{post.readingTime}</span>
           </div>
-          <h1 className="mt-4 text-3xl font-semibold tracking-normal sm:text-5xl">{post.title}</h1>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground">{post.description}</p>
+          <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-normal sm:text-4xl lg:text-5xl">{post.title}</h1>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">{post.description}</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <Badge key={tag}>{tag}</Badge>
@@ -59,3 +59,4 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     </div>
   );
 }
+
