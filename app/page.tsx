@@ -19,7 +19,7 @@ export default function HomePage() {
     <>
       <HomeHero />
 
-      <section className="border-y border-border bg-secondary/45">
+      <section className="section-band section-soft">
         <div className="container-page section-pad grid gap-8 md:grid-cols-[0.7fr_1fr]">
           <SectionHeading
             eyebrow="Short intro"
@@ -37,7 +37,7 @@ export default function HomePage() {
       <ProjectShowcase projects={featuredProjects} />
 
 
-      <section className="border-y border-border bg-secondary/45">
+      <section className="section-band section-soft">
         <div className="container-page section-pad">
           <SectionHeading title="Skills preview" description="Tools and concepts currently shaping the work." />
           <div className="mt-8 flex flex-wrap gap-3">
@@ -62,7 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-card">
+      <section className="border-t border-border bg-card/80">
         <div className="container-page section-pad flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <SectionHeading title="Open to AI engineering and data roles." description="Available for internships, junior roles, research collaboration, and project-based work." />
           <Button asChild>
@@ -73,5 +73,6 @@ export default function HomePage() {
     </>
   );
 }
+
 
 

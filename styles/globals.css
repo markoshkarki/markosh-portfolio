@@ -49,6 +49,10 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 8% 0%, hsl(var(--primary) / 0.06), transparent 28rem),
+      radial-gradient(circle at 92% 4%, hsl(var(--accent) / 0.06), transparent 24rem);
+    background-attachment: fixed;
   }
 
   ::selection {
@@ -58,14 +62,28 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
 
   .section-pad {
-    @apply py-16 sm:py-20;
+    @apply py-14 sm:py-16 lg:py-20;
+  }
+
+  .section-band {
+    @apply border-y border-border bg-secondary/35;
+  }
+
+  .section-soft {
+    @apply relative overflow-hidden;
+  }
+
+  .section-soft::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_8%,hsl(var(--primary)/0.08),transparent_30%),radial-gradient(circle_at_88%_18%,hsl(var(--accent)/0.07),transparent_28%)];
   }
 
   .prose-portfolio {
     @apply prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-headings:font-semibold prose-a:text-primary prose-pre:border prose-pre:border-border prose-pre:bg-secondary;
   }
 }
+

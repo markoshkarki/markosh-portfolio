@@ -15,9 +15,10 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="border border-border bg-card/70 shadow-sm transition-all hover:border-primary/35 hover:bg-secondary"
       suppressHydrationWarning
     >
-      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {isDark ? <Sun className="h-4 w-4 text-primary" /> : <Moon className="h-4 w-4 text-primary" />}
     </Button>
   );
 }
