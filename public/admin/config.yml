@@ -4,8 +4,9 @@ backend:
   name: github
   repo: markoshkarki/markosh-portfolio
   branch: main
-  base_url: https://your-decap-oauth-provider.example.com
-  auth_endpoint: auth
+  base_url: https://markoshkarki.com.np
+  auth_endpoint: api/auth
+  site_domain: markoshkarki.com.np
 
 # Enables `npx decap-server` for local CMS testing.
 local_backend: true
@@ -177,3 +178,6 @@ collections:
         summary: "{{fields.tag}}"
         field: { label: Tag, name: tag, widget: string }
       - { label: Body, name: body, widget: markdown }
+
+
+
