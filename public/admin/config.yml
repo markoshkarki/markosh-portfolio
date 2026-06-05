@@ -1,69 +1,120 @@
+# Decap CMS configuration for Markosh Karki Portfolio
+# Replace `markoshkarki/markosh-portfolio` with the real GitHub repo path.
 backend:
-  name: git-gateway
+  name: github
+  repo: markoshkarki/markosh-portfolio
   branch: main
+  base_url: https://your-decap-oauth-provider.example.com
+  auth_endpoint: auth
 
+# Enables `npx decap-server` for local CMS testing.
 local_backend: true
+
+publish_mode: editorial_workflow
 
 media_folder: public/uploads
 public_folder: /uploads
 
 site_url: https://markoshkarki.com.np
 display_url: https://markoshkarki.com.np
-logo_url: /favicon.ico
+logo_url: /favicon.svg
 
 collections:
-  - name: site
-    label: Site Settings
+  - name: homepage
+    label: Homepage Content
     files:
       - label: Homepage
         name: home
         file: content/site/home.md
+        format: frontmatter
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Domain, name: domain, widget: string }
-          - { label: Title, name: title, widget: string }
+          - { label: Primary Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: text }
-          - { label: Resume URL, name: resumeUrl, widget: string }
-          - { label: GitHub, name: github, widget: string }
-          - { label: LinkedIn, name: linkedin, widget: string }
-      - label: About Page
+          - {
+              label: Resume URL,
+              name: resumeUrl,
+              widget: string,
+              default: /resume-markosh-karki.pdf,
+            }
+          - { label: GitHub URL, name: github, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string }
+
+  - name: about
+    label: About Page
+    files:
+      - label: About Content
         name: about
         file: content/site/about.md
+        format: frontmatter
         fields:
           - { label: Intro, name: intro, widget: text }
           - { label: Focus, name: focus, widget: text }
-      - label: Skills
+
+  - name: skills
+    label: Skills
+    files:
+      - label: Skills List
         name: skills
         file: content/site/skills.md
+        format: frontmatter
         fields:
           - label: Skills
             name: skills
             widget: list
+            summary: "{{fields.skill}}"
             field: { label: Skill, name: skill, widget: string }
-      - label: Resume
-        name: resume
-        file: content/site/resume.md
-        fields:
-          - { label: Resume URL, name: resumeUrl, widget: string }
+
+  - name: socials
+    label: Social Links
+    files:
       - label: Social Links
         name: socials
         file: content/site/socials.md
+        format: frontmatter
         fields:
           - { label: Email, name: email, widget: string }
-          - { label: GitHub, name: github, widget: string }
-          - { label: LinkedIn, name: linkedin, widget: string }
+          - { label: GitHub URL, name: github, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string }
+
+  - name: resume
+    label: Resume
+    files:
+      - label: Resume Link
+        name: resume
+        file: content/site/resume.md
+        format: frontmatter
+        fields:
+          - {
+              label: Resume URL,
+              name: resumeUrl,
+              widget: string,
+              default: /resume-markosh-karki.pdf,
+            }
 
   - name: projects
     label: Projects
+    label_singular: Project
     folder: content/projects
     create: true
+    delete: true
     slug: "{{slug}}"
     extension: mdx
     format: frontmatter
+    preview_path: projects/{{slug}}
+    summary: "{{title}} � {{status}}"
+    sortable_fields: [date, title, status]
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: text }
-      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - {
+          label: Date,
+          name: date,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+        }
       - label: Category
         name: category
         widget: select
@@ -71,6 +122,7 @@ collections:
       - label: Tags
         name: tags
         widget: list
+        summary: "{{fields.tag}}"
         field:
           label: Tag
           name: tag
@@ -79,6 +131,7 @@ collections:
       - label: Tech Stack
         name: techStack
         widget: list
+        summary: "{{fields.technology}}"
         field: { label: Technology, name: technology, widget: string }
       - { label: GitHub Link, name: github, widget: string, required: false }
       - { label: Live Demo, name: demo, widget: string, required: false }
@@ -86,7 +139,9 @@ collections:
         name: screenshots
         widget: list
         required: false
-        field: { label: Screenshot Label, name: screenshot, widget: string }
+        summary: "{{fields.screenshot}}"
+        field:
+          { label: Screenshot Label or Path, name: screenshot, widget: string }
       - label: Status
         name: status
         widget: select
@@ -96,17 +151,29 @@ collections:
 
   - name: blog
     label: Blog Posts
+    label_singular: Blog Post
     folder: content/blog
     create: true
+    delete: true
     slug: "{{slug}}"
     extension: mdx
     format: frontmatter
+    preview_path: blog/{{slug}}
+    summary: "{{title}} � {{date}}"
+    sortable_fields: [date, title]
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: text }
-      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - {
+          label: Date,
+          name: date,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+        }
       - label: Tags
         name: tags
         widget: list
+        summary: "{{fields.tag}}"
         field: { label: Tag, name: tag, widget: string }
       - { label: Body, name: body, widget: markdown }
